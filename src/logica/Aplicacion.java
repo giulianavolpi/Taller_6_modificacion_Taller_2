@@ -19,7 +19,7 @@ public class Aplicacion {
 	 */
 	public static void main(String[] args)
 	{
-		ConsolaHamburguesas consola = new ConsolaHamburguesas();
+		LoaderRestaurante consola = new LoaderRestaurante();
 		Aplicacion.ejecutarAplicacion();
 	}
 	
