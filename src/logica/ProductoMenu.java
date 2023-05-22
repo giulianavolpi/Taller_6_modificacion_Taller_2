@@ -7,11 +7,11 @@ public class ProductoMenu implements Producto {
 	String nombre = "";
 	Integer precioBase = 0;
 			
-	public ProductoMenu(String nombre, Integer precioBase) {
+	public List<String> ProductoMenu(String nombre, Integer precioBase) {
 		// TODO Auto-generated constructor stub
 	
 	List<String> listaMenu = new ArrayList<>();
-	listaMenu.add(nombre,precioBase);
+	listaMenu.add(nombre);
 	return listaMenu;
 
 	}
