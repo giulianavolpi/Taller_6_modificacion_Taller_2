@@ -1,5 +1,6 @@
 package procesamiento;
 import logica.Ingrediente;
+
 import logica.Aplicacion;
 import logica.Combo;
 import logica.Pedido;
@@ -7,6 +8,9 @@ import logica.Producto;
 import logica.ProductoAjustado;
 import logica.ProductoMenu;
 import logica.Restaurante;
+import excepciones.PedidoException;
+import excepciones.IngredienteRepetidoException;
+import excepciones.ProductoRepetidoException;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -48,9 +52,14 @@ public class LoaderRestaurante {
 				String nombre = partes[0];
 				String precio = partes[1];
 		
-				
-				menu.put(nombre, precio);
-				linea3 = br3.readLine();
+				if (pRepetido(String menu, String nombre) == 1)
+					menu.put(nombre, precio);
+					linea1 = br1.readLine()
+					
+				else
+					System.out.println("Este producto ya hace parte del menu.");
+					
+						
 			}
 
 
@@ -64,10 +73,13 @@ public class LoaderRestaurante {
 					String[] partes2 = linea1.split(";");
 					String nombreIngrediente = partes2[0];
 					String precioIngrediente = partes2[1];
-			
-					ingredientes.put(nombreIngrediente, precioIngrediente);
-					linea3 = br3.readLine();
 					
+					if (iRepetido(String ingredientes, String nombreIngrediente) == 1)
+					ingredientes.put(nombreIngrediente, precioIngrediente);
+					linea2 = br2.readLine();
+					
+					else
+						System.out.println("Este ingrediente ya hace parte de la lista de ingredientes.");
 						
 					}
 
@@ -110,7 +122,7 @@ public class LoaderRestaurante {
 				
 						
 						bebidas.put(nombreBebida, precioBebida);
-						linea3 = br4.readLine();
+						linea4 = br4.readLine();
 						
 						
 						}
@@ -129,6 +141,11 @@ public class LoaderRestaurante {
 			System.out.println(ingredientes);
 			System.out.println(combos);
 			System.out.println(bebidas);
+			private static int pRepetido() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
 			Calculadora elMenu = new Calculadora(menu, ingredientes, combos);
 			return elMenu;
 		}

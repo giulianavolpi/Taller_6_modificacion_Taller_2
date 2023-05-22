@@ -23,6 +23,7 @@ public class Aplicacion {
 		Aplicacion.ejecutarAplicacion();
 	}
 	
+
 	public void mostrarMenu()
 	{
 		System.out.println("\nOpciones de la aplicación\n");
@@ -108,7 +109,7 @@ public class Aplicacion {
 					String nombreCliente = input("Por favor ingrese su nombre: ");
 					String pedido = input("Por favor ingrese el número de lo que desea ordenar: ");
 					String direccionCliente = input("Por favor ingrese su dirección: ");
-					Pedido nuevoPedido = Pedido.Pedido(nobreCliente, direccionCliente);
+					Pedido nuevoPedido = Pedido.Pedido(nombreCliente, direccionCliente);
 					
 				}
 				
@@ -149,6 +150,10 @@ public class Aplicacion {
 					}
 					return null;
 				}
-				}
-			}
 				
+			
+				
+			private static void ejecutarAplicacion() {
+				// TODO Auto-generated method stub
+				
+			}

@@ -6,11 +6,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
+
+import excepciones.PedidoException;
+
 public class Pedido {
 	
 	private static Object productosPedidos;
 	Integer numeroPedidos= 0;
-	int idPedido =1;
+	static int idPedido =1;
 	String nombreCliente = "";
 	String direccionCliente = "";
 			
@@ -42,27 +47,39 @@ public class Pedido {
 	public int getIdPedido()
 	{
 		
+		Object[] infoPersonalPedido = null;
 		int idPedido = Pedido.get(infoPersonalPedido[2]);
 		return idPedido;
 	}
 	
 		
+	private static int get(Object object) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	public void agregarProducto(Producto nuevoItem)
 	{
 		
-		List<String> productosPedido = new ArrayList<>();
+		List<String> productosPedidos = new ArrayList<>();
 		
-		for (Map.Entry<String, String> elPedido : Pedido.pedido.entrySet()) {
-		    String nombre = elPedido.getKey();
-		    String precio = elPedido.getValue();
-		    productosPedido.add(nombre,precio);
-		    
+		try {
+			for (Map.Entry<String, String> elPedido : Pedido.idPedido.entrySet()) {
+			    String nombre = elPedido.getKey();
+			    String precio = elPedido.getValue();
+			    productosPedidos.add(nombre,precio);
+			    
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		String nombreNuevo = nuevoItem.nombre;
-		double precioNuevo = nuevoItem.precio;
-		
-		productosPedido.add(nombreNuevo,precioNuevo);
-		
+				String nombreNuevo = nuevoItem.nombre;
+				double precioNuevo = nuevoItem.precio;
+				
+				if (PedidoException.PedidoException(productosPedidos,precioNuevo)== 1)
+					productosPedidos.add(nombreNuevo,precioNuevo);
+				
 	}
 	
 	private double getPrecioNetoPedido()
@@ -94,7 +111,7 @@ public class Pedido {
 	
 	
 	
-	private String generarTextoFactura()
+	String generarTextoFactura()
 	{
 		String factura = "Factura de su pedido \n"
 				+ "Elementos ordenados: " + Pedido.get(productosPedidos)
@@ -102,6 +119,11 @@ public class Pedido {
 				+ "Impuesto IVA: " + getPrecioIVAPedido()
 				+ "Precio Total del pedido" + getPrecioTotalPedido() ;
 		return factura ;
+	}
+
+	public static Class<Pedido> productosPedidos() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

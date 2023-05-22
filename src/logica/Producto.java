@@ -2,18 +2,9 @@ package logica;
 import logica.Pedido;
 
 public interface Producto {
-	Integer precio = getPrecio();
-	String nombre = getNombre();
+	public static final int precio = 0;
+	public static final String nombre = "";
 	
-	public static int getPrecio()
-	{
-		return precio;
-	}
-	
-	public static String getNombre()
-	{
-		return nombre ;
-	}
 	
 	public static String generarTextoFactura()
 	{	String factura = Pedido.class.generarTextoFactura();

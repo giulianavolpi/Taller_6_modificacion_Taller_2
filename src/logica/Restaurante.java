@@ -29,6 +29,7 @@ public class Restaurante {
 	
 	public Pedido getPedidoenCurso()
 	{
+		Pedido pedido = null;
 		return pedido;
 		
 	}
@@ -37,6 +38,7 @@ public class Restaurante {
 	{	
 		
 		
+		ArrayList<Producto> productosMenu = null;
 		return productosMenu;
 		
 	}
